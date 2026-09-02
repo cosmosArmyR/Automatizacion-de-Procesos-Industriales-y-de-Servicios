@@ -892,63 +892,7 @@
                 Tecnología: Utiliza software de automatización de procesos (RPA), inteligencia artificial y plataformas de gestión (CRM). </p>
                     
                         
-                        <strong>Codigo usado:</strong>
-                            // C++ code
-                            //usamos librería para servo
-                            #include <Servo.h>
-                            
-                            Servo grados;
-                            //declaración de variables
-                            int pinservo=9;	//pin para comunicar el servo
-                            //definimos las posiciones
-                            int pos1=0;//0 grados
-                            int pos2=90;//90 grados
-                            int pos3=180;//180 grados
-                            int posicion=0;//posicion inicial
-                            
-                            void setup()
-                            {
-                              //conectando el servo
-                              grados.attach(pinservo);//indicamos en que pin se conecta
-                            }
-                            
-                            void loop()
-                            {
-                              posicion=pos1;//0 grados
-                              grados.write(posicion);//ajustamos la posicion indicada
-                              delay(2000); //pausa antes del siguiente movimiento
-                              
-                              posicion=pos2;
-                              grados.write(posicion);
-                              delay(2000);
-                              
-                              posicion=pos3;
-                              grados.write(posicion);
-                              delay(2000);
-                            }
-                    </li>
-                </ul>
-            </div>
-
-            <div class="explicacion-box" style="margin-top: 2rem;">
-                <h3 class="explicacion-titulo">
-                    <span style="color: #2563eb;">🔬</span> Especificaciones Técnicas SG90
-                </h3>
-                <ul class="explicacion-lista">
-                    <li><strong>Voltaje de operación:</strong> 4.8V - 6V (típicamente 5V)</li>
-                    <li><strong>Corriente sin carga:</strong> 100mA @ 5V</li>
-                    <li><strong>Corriente con carga:</strong> 500-800mA @ 5V</li>
-                    <li><strong>Torque máximo:</strong> 1.8 kg/cm @ 5V</li>
-                    <li><strong>Velocidad:</strong> 0.1s/60° @ 5V</li>
-                    <li><strong>Rango de movimiento:</strong> 0° - 180° (aproximadamente)</li>
-                    <li><strong>Frecuencia de señal:</strong> 50Hz (período de 20ms)</li>
-                    <li><strong>Ancho de pulso:</strong> 1ms (0°) a 2ms (180°)</li>
-                    <li><strong>Peso:</strong> 9 gramos</li>
-                    <li><strong>Dimensiones:</strong> 22 x 11.5 x 27 mm</li>
-                </ul>
-            </div>
-        </section>
-
+                       
         <center>
             <a href="index.html" class="btn-volver">◄ VOLVER AL INICIO</a>
         </center>
