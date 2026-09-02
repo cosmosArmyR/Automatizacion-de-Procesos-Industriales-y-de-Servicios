@@ -679,13 +679,13 @@
             <div class="diagrama-card">
                 <div class="diagrama-titulo">Fundamentales</div>
                 <p class="seccion-texto" style="margin-top: 2rem; text-align: center;">
-                    <strong>1.- Sensor:</strong> 
+                    <strong>- Sensor:</strong> 
                     Dispositivo que detecta cambios físicos (como temperatura, presión o
                     movimiento) y los convierte en señales eléctricas.
-                     <strong>2.- Actuador:</strong> 
+                     <strong>- Actuador:</strong> 
                     Dispositivo que recibe una orden y realiza una acción física (como abrir una
                     válvula o encender un motor).
-                       <strong>3.- Lazo de control:</strong> 
+                       <strong>- Lazo de control:</strong> 
                     Ciclo continuo donde un sensor mide una variable, un controlador la
                     evalúa y un actúa corrige el resultado si es necesario.</p>
             </div>
@@ -789,76 +789,109 @@
 
 
 
-        
-        <!-- Sección: Resultado Final -->
-        <section class="seccion">
-            <h2 class="seccion-titulo">Resultado Final - Funcionamiento</h2>
-            <p class="seccion-texto">
-                Una vez completadas todas las conexiones y cargado el código correspondiente en el Arduino, 
-                el servomotor estará listo para funcionar. El siguiente video muestra el servomotor en operación, 
-                realizando movimientos controlados mediante señales PWM generadas por el Arduino.
-            </p>
-
-            <div class="video-resultado">
-                <div class="video-wrapper">
-                    <div class="video-badge">▶ FUNCIONAMIENTO</div>
-                    <video controls>
-                        <source src="SERVO EN USO.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-        </section>
-
         <!-- Sección: Por qué funciona -->
         <section class="seccion">
-            <h2 class="seccion-titulo">¿Por Qué Funciona el Servomotor?</h2>
+            <h2 class="seccion-titulo">El Ciclo de Automatización</h2>
             <p class="seccion-texto">
-                El funcionamiento del servomotor se basa en la combinación de varios principios de control, 
-                electrónica y mecánica. A continuación se explican los conceptos fundamentales:
+                El ciclo de la automatización es el proceso continuo de identificar, planificar, implementar,
+                medir y mejorar tareas que usan tecnología para funcionar con poca intervención humana.
             </p>
 
             <div class="explicacion-box">
                 <h3 class="explicacion-titulo">
-                    <span style="color: #dc2626;">⚡</span> Principios de Funcionamiento
-                </h3>
+                    <span style="color: #dc2626;">⚡</span> Etapas del ciclo de la automatización</h3>
                 <ul class="explicacion-lista">
                     <li>
-                        <strong>Control por Modulación de Ancho de Pulso (PWM):</strong> El Arduino genera 
-                        pulsos eléctricos de duración variable (típicamente entre 1ms y 2ms) a una frecuencia 
-                        de 50Hz (20ms de período). La duración del pulso determina la posición angular del servo: 
-                        1ms = 0°, 1.5ms = 90°, 2ms = 180°.
+                        <strong>Identificación:</strong> 
+                        Se buscan tareas repetitivas o manuales que consumen tiempo y son propensas a errores.
                     </li>
                     <li>
-                        <strong>Circuito de Control Interno:</strong> El servomotor contiene un circuito 
-                        electrónico que decodifica la señal PWM recibida y la compara con la posición actual 
-                        detectada por el potenciómetro interno. Este circuito genera las señales necesarias 
-                        para controlar el motor DC.
+                        <strong>Planificación y diseño: </strong> 
+                        Se define un plan, se eligen las herramientas o el software adecuado y se diseña el flujo de trabajo.
                     </li>
                     <li>
-                        <strong>Motor DC y Sistema de Engranajes:</strong> Dentro del servomotor hay un pequeño 
-                        motor de corriente continua acoplado a una caja reductora de engranajes. Los engranajes 
-                        reducen la velocidad y aumentan el torque, permitiendo movimientos precisos y con fuerza 
-                        suficiente para aplicaciones prácticas.
+                        <strong>Implementación o integración:</strong> 
+                        Se configura la tecnología (como robots, software o inteligencia artificial) para conectar los sistemas 
+                        y ejecutar las tareas automáticamente.
                     </li>
                     <li>
-                        <strong>Retroalimentación por Potenciómetro:</strong> Un potenciómetro acoplado al eje 
-                        de salida convierte la posición mecánica en una señal eléctrica proporcional. El circuito 
-                        de control compara esta señal con la posición deseada (indicada por el PWM) y ajusta el 
-                        motor hasta alcanzar la posición objetivo.
+                        <strong>Monitoreo y análisis:</strong> 
+                            Se supervisa el sistema en tiempo real para verificar que funcione bien y cumpla con los objetivos.
                     </li>
                     <li>
-                        <strong>Sistema de Control en Lazo Cerrado:</strong> La combinación de sensor 
-                        (potenciómetro), controlador (circuito interno) y actuador (motor DC) forma un sistema 
-                        de control en lazo cerrado. Este sistema corrige automáticamente cualquier error de 
-                        posición causado por cargas externas o perturbaciones.
+                        <strong>Optimización:</strong> 
+                            Se ajustan y mejoran los procesos de manera continua según los resultados obtenidos.
                     </li>
                     <li>
-                        <strong>Fuente de Alimentación:</strong> El pin de 5V del Arduino suministra la energía 
-                        necesaria tanto para el circuito de control como para el motor. La corriente puede variar 
-                        entre 100mA (en reposo) hasta 500-800mA (bajo carga máxima). Para aplicaciones con múltiples 
-                        servos o cargas pesadas, se recomienda usar una fuente de alimentación externa.
+
+
+
+
+                          <!-- Sección: Por qué funciona SEGUNDA SECCIÓN -->
+        <section class="seccion">
+            <h2 class="seccion-titulo">VENTAJAS Y DESVENTAJAS</h2>
+            La automatización de procesos industriales y de servicios consiste en utilizar tecnologías, software o maquinaria 
+            consiste en utilizar tecnologías, software o maquinaria para ejecutar tareas de manera autónoma o con mínima intervención humana.
+            
+            <div class="explicacion-box">
+                <h3 class="explicacion-titulo">
+                    <span style="color: #dc2626;">⚡</span> Principales Ventajas</h3>
+                <ul class="explicacion-lista">
+                    <li>
+                        <strong>Mayor productividad</strong> 
+                        Los sistemas operan las 24 horas del día sin interrupciones ni tiempos de descanso.
                     </li>
                     <li>
+                        <strong>Calidad constante:</strong> 
+                        Se reducen drásticamente los errores humanos, lo que garantiza resultados homogéneos y precisos.
+                    </li>
+                    <li>
+                        <strong>Ahorro de costos a largo plazo: </strong> 
+                     Disminuye el desperdicio de materias primas y optimiza el uso de recursos operativos y energéticos.
+                    </li>
+                    <li>
+                        <strong>Mejora en la seguridad:</strong> 
+                            Las máquinas asumen tareas peligrosas o repetitivas, protegiendo a los trabajadores.
+                    </li>
+                    <li>
+                        <strong>Enfoque estratégico:</strong> 
+                        El personal se libera de labores monótomas y se concentra en actividades creativas o de mayor valor.
+                    </li>
+                    <li>
+
+                         <div class="explicacion-box">
+                <h3 class="explicacion-titulo">
+                    <span style="color: #dc2626;">⚡</span> Principales Desventajas</h3>
+                <ul class="explicacion-lista">
+                    <li>
+                        <strong>Alta inversión inicial:</strong> 
+                        Requiere un desembolso significativo en equipo, software especializado y capacitación.
+                    </li>
+                    <li>
+                        <strong>Dependencia tecnológica:</strong> 
+                        Una falla en los sistemas o en el suministro eléctrico puede paralizar por completo la operación.
+                    </li>
+                    <li>
+                        <strong>Mantenimiento y obsolescencia:</strong> 
+                        Los componentes exigen revisiones periódicas y corren el riesgo de volverse obsoletos rápidamente.
+                    </li>
+                    <li>
+
+
+                          <section class="seccion">
+            <h2 class="seccion-titulo">Diferencias entre la Automatización de Procesos Industriales y de Servicios</h2>
+            <p class="seccion-texto">
+                La automatización industrial controla maquinaria física y líneas de producción, mientras que la automatización de servicios 
+                gestiona flujos de datos y tareas administrativas digitales.
+                Automatización IndustrialEste tipo se enfoca en el mundo físico y la manufactura.
+                Objetivo: Fabricar productos materiales con rapidez y precisión.
+                Tecnología: Utiliza controladores lógicos programables (PLC), sensores de peso o temperatura y robots mecánicos.</p>
+             <p class="seccion-texto">
+                Automatización de ServiciosEste tipo se enfoca en el manejo de información y la atención al cliente.
+                Objetivo: Reducir tiempos en trámites, finanzas y soporte técnico.
+                Tecnología: Utiliza software de automatización de procesos (RPA), inteligencia artificial y plataformas de gestión (CRM). </p>
+                    
+                        
                         <strong>Codigo usado:</strong>
                             // C++ code
                             //usamos librería para servo
