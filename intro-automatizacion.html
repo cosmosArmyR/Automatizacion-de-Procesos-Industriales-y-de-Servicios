@@ -628,32 +628,96 @@
             </p>
         </section>
 
-        <!-- Sección: Materiales -->
+      <!-- Sección: Materiales -->
         <section class="seccion">
-            <h2 class="seccion-titulo">INTRODUCCIÓN</h2>
+            <h2 class="seccion-titulo">Introducción</h2>
             <p class="seccion-texto">
                 La automatización de procesos es el uso de tecnologías como la robótica y el software
                 para realizar tareas operativas de forma automática y con mínima intervención humana.
+                
             </p>
 
             <div class="materiales-grid">
                 <div class="material-item">
+                    <div class="material-icono">1</div>
                     <div class="material-nombre">¿Qué es la Automatización?</div>
                     <div class="material-descripcion">
-                        Es un sistema que combina máquinas, sensores y programas para controlar
-                        operaciones. Su meta principal es mejorar la eficiencia, reducir errores y aumentar la
-                        seguridad.
+                    Es un sistema que combina máquinas, sensores y programas para controlar
+                    operaciones. Su meta principal es mejorar la eficiencia, reducir errores y aumentar la
+                    seguridad.  
                     </div>
                 </div>
 
-               <div class="materiales-grid">
                 <div class="material-item">
+                    <div class="material-icono">2</div>
                     <div class="material-nombre">Automatización Industrial</div>
                     <div class="material-descripcion">
-                        Aplica en fábricas y plantas de producción para fabricar bienes físicos.
-                         <strong> Robots de Ensamblaje: </strong> Arman piezas rápido y sin descanso.
-                        <strong>  Controladores lógicos (PLC): </strong> Computadoras industriales que mandan señales a las máquinas.
-                        <strong>  Sensores de calidad: </strong> Detectan fallas en los productos al instante.
+                       Aplica en fábricas y plantas de producción para fabricar bienes físicos:
+                        Robots de ensamblaje: Arman piezas rápido y sin descanso.
+                        Controladores lógicos (PLC): Computadoras industriales que mandan señales a las máquinas.
+                        Sensores de calidad: Detectan fallas en los productos al instante.
+                    </div>
+                </div>
+
+                <div class="material-item">
+                    <div class="material-icono">3</div>
+                    <div class="material-nombre">Automatización de Servicios</div>
+                    <div class="material-descripcion">
+                    Aplica en oficinas, bancos, hospitales y comercios para gestionar datos y atención:
+                    Chatbots: Responden dudas de clientes las 24 horas.
+                    Banca digital: Permite hacer transferencias sin ir al banco.
+                    Software de inventarios: Ordena pedidos y avisos de stock solo.
+                    
+                    </div>
+                </div>
+
+                <div class="material-item">
+                    <div class="material-icono">🔗</div>
+                    <div class="material-nombre">Cables Jumper</div>
+                    <div class="material-descripcion">
+                        Cables de conexión macho-hembra para conectar el servomotor directamente a los 
+                        pines del Arduino. Tres cables de colores según función.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección: Diagrama -->
+        <section class="seccion">
+            <h2 class="seccion-titulo">Diagrama de Conexión</h2>
+            <div class="diagrama-card">
+                <div class="diagrama-titulo">Esquema Eléctrico Arduino + Servomotor</div>
+                <img src="SERVO TINKER.png" alt="Diagrama servomotor" class="diagrama-imagen">
+                <p class="seccion-texto" style="margin-top: 2rem; text-align: center;">
+                    <strong>Conexiones:</strong> Cable naranja → Pin digital PWM (~), 
+                    Cable rojo → 5V, Cable café → GND
+                </p>
+            </div>
+        </section>
+
+        <!-- Sección: Proceso Paso a Paso -->
+        <section class="seccion">
+            <h2 class="seccion-titulo">Proceso de Conexión Paso a Paso</h2>
+            <p class="seccion-texto">
+                A continuación se muestra el proceso detallado de conexión del servomotor al Arduino, 
+                identificando cada cable por su función específica.
+            </p>
+
+            <div class="paso-container">
+                <!-- Paso 1 -->
+                <div class="paso-item">
+                    <div class="paso-numero">1</div>
+                    <div class="paso-contenido">
+                        <h3 class="paso-titulo">Cable Café - Conexión a Tierra (GND)</h3>
+                        <p class="paso-descripcion">
+                            El cable <strong>café</strong> (o negro en algunos modelos) es la conexión a tierra (GND) 
+                            del servomotor. Este cable debe conectarse a cualquier pin GND del Arduino para cerrar 
+                            el circuito eléctrico. La tierra es el punto de referencia común para todas las señales 
+                            eléctricas del sistema.
+                        </p>
+                        <div class="paso-imagen">
+                            <img src="SERVO GND.jpg" alt="Cable café GND">
+                        </div>
                     </div>
                 </div>
 
