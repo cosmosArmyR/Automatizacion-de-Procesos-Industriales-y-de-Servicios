@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servomotor - Práctica</title>
+    <title>INTRODUCCIÓN A FUNDAMENTOS DE AUTOMATIZACIÓN DE PROCESOS INDUSTRIALES Y DE SERVICIOS</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;600;700&family=Exo+2:wght@300;500;700;900&display=swap');
 
@@ -595,11 +595,12 @@
     <header class="header">
         <div class="header-deco deco-tl"></div>
         <div class="header-deco deco-tr"></div>
-        <h1 class="titulo-principal">🔧 SERVOMOTOR 🔧</h1>
-        <p class="subtitulo">[ PRÁCTICA DE CONTROL DE POSICIÓN ]</p>
+        <h1 class="titulo-principal">🔧 INTRODUCCIÓN A FUNDAMENTOS DE AUTOMATIZACIÓN DE PROCESOS INDUSTRIALES Y DE SERVICIOS 🔧</h1>
+        <p class="subtitulo">[Historia, Introducción, Conceptos Claves, Ciclo de la automatización, Ventajas y Desventajas 
+            y las Diferencias entre Automatización de Procesos Industriales y de Servicios]</p>
     </header>
 
-    <!-- Contenido principal -->
+    <!-- Contenido principal HISTORIA-->
     <main class="contenido">
         <center>
             <a href="index.html" class="btn-volver">◄ VOLVER AL INICIO</a>
@@ -607,66 +608,54 @@
 
         <!-- Sección: Introducción -->
         <section class="seccion">
-            <h2 class="seccion-titulo">¿Qué es un Servomotor?</h2>
+            <h2 class="seccion-titulo">HOSTORIA</h2>
             <p class="seccion-texto">
-                Un <strong>servomotor</strong> es un actuador rotativo que permite un control preciso de 
-                posición angular, velocidad y aceleración. A diferencia de los motores DC convencionales, 
-                los servomotores incorporan un sistema de retroalimentación que les permite mantener su 
-                posición con gran exactitud.
+                La <strong>automatización </strong> de procesos industriales y de servicios comenzó en la antigüedad
+                con mecanismos simples y evolucionó hasta convertirse en sistemas digitales
+                comenzó en la antigüedad con mecanismos simples y evolucionó hasta convertirse en sistemas digitales 
+                avanzados que operan sin intervención humana directa.
             </p>
             <p class="seccion-texto">
-                Los servomotores se utilizan ampliamente en robótica, automatización, sistemas de control 
-                y proyectos de electrónica por su capacidad de moverse a posiciones específicas con precisión 
-                y mantenerlas mediante un circuito de control interno.
+                Orígenes e Inicios (Antigüedad y Siglo XVIII)
+                <strong> Mecanismos antiguos:</strong> Los griegos y romanos diseñaron clepsidras (relojes de agua)
+                 Los griegos y romanos diseñaron clepsidras (relojes de agua) y puertas automáticas para templos.
+
+                <strong> Revolución Industrial (Siglo XVIII): </strong> La invención de la máquina de vapor y el telar
+                mecánico cambiaron la producción manual por la mecanización.
+
+                   <strong> Primer proceso automático (1785): </strong>  Oliver Evans creó un molino de harina que
+                operaba de manera continua solo con la fuerza del agua, sin ayuda humana.
             </p>
         </section>
 
-        <!-- Sección: Materiales -->
+        <!-- Sección - INTRODUCCIÓN -->
         <section class="seccion">
-            <h2 class="seccion-titulo">Materiales Utilizados</h2>
+            <h2 class="seccion-titulo">INTRODUCCIÓN</h2>
             <p class="seccion-texto">
-                Para realizar esta práctica de control de servomotor con Arduino, se requieren los siguientes 
-                componentes electrónicos:
+                La automatización de procesos es el uso de tecnologías como la robótica y el software
+                para realizar tareas operativas de forma automática y con mínima intervención humana.
             </p>
 
             <div class="materiales-grid">
                 <div class="material-item">
-                    <div class="material-icono">🔵</div>
-                    <div class="material-nombre">Arduino UNO</div>
+                    <div class="material-nombre">¿Qué es la Automatización?</div>
                     <div class="material-descripcion">
-                        Microcontrolador que genera las señales PWM necesarias para controlar el servomotor. 
-                        Proporciona alimentación de 5V y gestiona la comunicación.
+                        Es un sistema que combina máquinas, sensores y programas para controlar
+                        operaciones. Su meta principal es mejorar la eficiencia, reducir errores y aumentar la
+                        seguridad.
                     </div>
                 </div>
 
+               <div class="materiales-grid">
                 <div class="material-item">
-                    <div class="material-icono">⚙️</div>
-                    <div class="material-nombre">Servomotor SG90</div>
+                    <div class="material-nombre">Automatización Industrial</div>
                     <div class="material-descripcion">
-                        Servomotor de 180° con torque de 1.8 kg/cm. Incluye tres cables: rojo (alimentación), 
-                        café/negro (tierra), naranja/amarillo (señal de control).
+                        Aplica en fábricas y plantas de producción para fabricar bienes físicos.
+                         <strong> Robots de Ensamblaje: </strong> Arman piezas rápido y sin descanso.
+                        <strong>  Controladores lógicos (PLC): </strong> Computadoras industriales que mandan señales a las máquinas.
+                        <strong>  Sensores de calidad: </strong> Detectan fallas en los productos al instante.
                     </div>
                 </div>
-
-                <div class="material-item">
-                    <div class="material-icono">🔌</div>
-                    <div class="material-nombre">Cable USB</div>
-                    <div class="material-descripcion">
-                        Cable USB tipo A a tipo B para conectar el Arduino al computador. Permite la 
-                        programación y suministra alimentación de 5V.
-                    </div>
-                </div>
-
-                <div class="material-item">
-                    <div class="material-icono">🔗</div>
-                    <div class="material-nombre">Cables Jumper</div>
-                    <div class="material-descripcion">
-                        Cables de conexión macho-hembra para conectar el servomotor directamente a los 
-                        pines del Arduino. Tres cables de colores según función.
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- Sección: Diagrama -->
         <section class="seccion">
