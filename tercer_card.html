@@ -1,0 +1,527 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#071f44"><title>Prácticas de sensores | Ian Martin Aguilar Alejo</title>
+<style>
+:root{--navy:#071f44;--blue:#0b4da2;--bright:#4e9bea;--ice:#eaf4ff;--paper:#f7faff;--ink:#193252;--muted:#647991;--line:#d7e5f2;--white:#fff;--shadow:0 18px 40px rgba(7,31,68,.12)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.65}
+a{text-decoration:none;color:inherit}
+.container{width:min(1120px,88%);margin:auto}
+
+/* ---- topbar ---- */
+.topbar{height:74px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;position:sticky;top:0;z-index:20}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;width:100%}
+.brand{display:flex;align-items:center;gap:11px;color:var(--navy);font-size:13px;font-weight:700;letter-spacing:.09em}
+.brand-mark{width:28px;height:28px;border:2px solid var(--blue);border-radius:7px;display:grid;place-items:center;color:var(--blue);font-size:12px}
+.brand b{color:var(--bright)}
+.nav{display:flex;gap:22px;color:var(--muted);font-size:13px}
+.nav a:hover{color:var(--blue)}
+
+/* ---- hero principal ---- */
+.hero{background:linear-gradient(120deg,#071f44,#0b4da2 60%,#3185d1);color:#fff;padding:70px 0 62px}
+.eyebrow{color:#b9d9fa;font:11px monospace;letter-spacing:.11em;text-transform:uppercase;margin:0 0 19px}
+.hero h1{font-size:clamp(36px,5.7vw,64px);line-height:1.02;letter-spacing:-.06em;margin:0;max-width:920px}
+.hero h1 span{color:#a9d7ff}
+.hero-copy{max-width:820px;color:#d8eaff;font-size:17px;margin:25px 0 0}
+
+/* ---- tabs de práctica (navegación interna) ---- */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-top:30px}
+.tabs a{display:flex;align-items:center;gap:9px;background:#ffffff17;border:1px solid #ffffff40;color:#eaf4ff;font-size:13px;font-weight:700;padding:11px 16px;border-radius:999px;transition:background .15s ease}
+.tabs a:hover{background:#ffffff2b}
+.tabs a b{font:11px monospace;color:#a9d7ff;font-weight:400}
+
+/* ---- secciones de práctica ---- */
+.practice{padding:66px 0;border-bottom:1px solid var(--line)}
+.practice:last-of-type{border-bottom:none}
+.practice-banner{background:var(--ice);border:1px solid var(--line);border-radius:12px;padding:26px 30px;margin-bottom:34px}
+.practice-banner .eyebrow{color:var(--blue);margin-bottom:10px}
+.practice-banner h2.big{color:var(--navy);font-size:clamp(26px,3.6vw,38px);letter-spacing:-.03em;margin:0 0 10px}
+.practice-banner p{color:var(--muted);font-size:15px;margin:0 0 16px;max-width:760px}
+.practice-meta{display:flex;gap:26px;flex-wrap:wrap;font:12px monospace;color:var(--muted)}
+.practice-meta strong{display:block;color:var(--blue);font-size:10px;font-weight:400;text-transform:uppercase}
+
+.layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(230px,.7fr);gap:54px}
+.content h3{color:var(--navy);font-size:22px;line-height:1.15;margin:32px 0 10px}
+.content h3:first-child{margin-top:0}
+.content p,.content li{color:var(--muted);font-size:15px}
+.content ul{padding-left:22px}
+
+.code{background:#102944;border-radius:6px;overflow:auto;margin:0 0 30px;color:#e7f2ff}
+.code-title{border-bottom:1px solid #34556e;padding:10px 16px;color:#a9d5fa;font:11px monospace;text-transform:uppercase}
+.code pre{padding:18px;margin:0;font:12px/1.65 Consolas,monospace;white-space:pre-wrap}
+
+.project-figure{margin:0 0 34px;background:#fff;border:1px solid var(--line);border-radius:7px;overflow:hidden;box-shadow:0 10px 25px #071f4412}
+.project-figure img{display:block;width:100%;max-height:480px;object-fit:contain;background:#f2f6fa}
+.project-figure figcaption{padding:11px 14px;color:var(--muted);font-size:12px}
+.project-figure strong{color:var(--blue)}
+
+.video-frame{border:1px solid var(--line);border-radius:7px;overflow:hidden;background:#000;margin:0 0 34px;box-shadow:0 10px 25px #071f4412}
+.video-frame video{display:block;width:100%;max-height:480px;background:#000}
+.video-caption{padding:11px 14px;color:var(--muted);font-size:12px;background:#fff}
+
+.note{background:#fff;border-left:4px solid var(--bright);box-shadow:var(--shadow);padding:18px 20px;margin-top:24px;color:var(--muted);font-size:14px}
+.note strong{color:var(--navy)}
+
+.side-card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--blue);padding:23px;position:sticky;top:96px;box-shadow:0 8px 24px #071f440f}
+.side-card h3{color:var(--navy);font-size:16px;margin:0 0 16px}
+.side-card dt{color:var(--blue);font:10px monospace;text-transform:uppercase;margin-top:15px}
+.side-card dd{color:var(--muted);font-size:13px;margin:2px 0 0}
+.side-card dd a{color:var(--blue);font-weight:700}
+
+.footer{padding:24px 0;color:#7b8da2;font:10px monospace;text-transform:uppercase;border-top:1px solid var(--line)}
+.footer-inner{display:flex;justify-content:space-between;gap:20px}
+.footer strong{color:var(--blue)}
+
+@media(max-width:760px){
+  .topbar{height:auto;padding:17px 0;position:static}
+  .nav{gap:10px;font-size:11px}
+  .hero{padding:52px 0 46px}
+  .hero h1{font-size:38px}
+  .hero-copy{font-size:15px}
+  .practice{padding:44px 0}
+  .layout{grid-template-columns:1fr;gap:10px}
+  .side-card{position:static}
+  .footer-inner{display:block}
+  .footer-inner span{display:block;margin-top:7px}
+}
+</style></head>
+<body>
+
+<header class="topbar">
+  <div class="container topbar-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">IA</span><span>NODO <b>/</b> AUTOMATIZACIÓN</span></a>
+    <nav class="nav">
+      <a href="index.html#catalogo">Catálogo</a>
+      <a href="#temperatura">Temperatura</a>
+      <a href="#humo">Humo</a>
+      <a href="#bomba">Bomba</a>
+      <a href="incendios.html">Incendios</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===================== HERO GENERAL ===================== -->
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">06 / PRÁCTICAS CON ARDUINO</p>
+      <h1>Prácticas Individuales en Físico y Simulado: <span>Tinkercad y Físico</span></h1>
+      <p class="hero-copy">Tres montajes con Arduino UNO que muestran el mismo patrón: leer un sensor, evaluar una condición y activar una salida. Cada práctica incluye su código, una imagen del montaje y un video explicativo.</p>
+      <div class="tabs">
+        <a href="#temperatura">06.1 <b>·</b> Temperatura</a>
+        <a href="#humo">06.2 <b>·</b> Humo + alarma</a>
+        <a href="#bomba">06.3 <b>·</b> Bomba + botón</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 06.1 TEMPERATURA ===================== -->
+  <section class="practice" id="temperatura">
+    <div class="container">
+      <div class="practice-banner">
+        <p class="eyebrow">06.1 / TEMPERATURA</p>
+        <h2 class="big">Sensor de temperatura</h2>
+        <p>Lectura analógica de temperatura con Arduino UNO</p>
+        <div class="practice-meta">
+          <div><strong>Plataforma</strong>Arduino UNO</div>
+          <div><strong>Práctica</strong>Temperatura</div>
+          <div><strong>Orden</strong>Código → imagen → video</div>
+        </div>
+      </div>
+
+      <div class="layout">
+        <article class="content">
+          <h3>1. Código</h3>
+          <div class="code">
+            <div class="code-title">Arduino · Temperatura</div>
+            <pre>#include &lt;LiquidCrystal.h&gt;
+
+Sensor de Temperatura:
+
+//Sensor De Temperatura LCD Con Arduino Y Tinkercard
+/*
+  LiquidCrystal Library 
+  
+ Este sketch imprime los valores de temperatura
+ captados por el sensor.
+ Se ve en la pantalla y el puerto serial.
+
+  The circuit:
+ * LCD RS pin to digital pin 12
+ * LCD Enable pin to digital pin 11
+ * LCD D4 pin to digital pin 5
+ * LCD D5 pin to digital pin 4
+ * LCD D6 pin to digital pin 3
+ * LCD D7 pin to digital pin 2
+ * LCD R/W pin to ground
+ * LCD VSS pin to ground
+ * LCD VCC pin to 5V
+
+ */
+
+// Incluye la libreria:
+#include <LiquidCrystal.h>
+
+//*****Pantalla LCD***********//
+// initialize the library with the numbers of the interface pins
+LiquidCrystal lcd(12, 13, 5, 4, 3, 2);
+
+int contrastPin = 6; //Pin que identifica el pin donde esta conectado el puerto de contraste del LCD
+int contrastValue= 1; // Valor del contraste en la Pantalla (5-20)
+
+//*****Sensor Temperatura*****//
+int umbralTemp = 20; //Nuestro valor umbral seran 20 grados centigrados 
+float sensorTemp = 0.0; //Lectura del sensor en valores decimales
+int sensorPin = A0; //Configuracion del Pin de lectura del sensor de T
+int temp = 0; //Lectura del sensor en valores enteros
+
+//*****LED RGB***************//
+int redLed = 9; 
+int greenLed = 10;
+int blueLed = 11;
+
+void setup() {
+  
+  //***Puerto Serial***//
+  //Seteo puerto serial para hacer display del sensor de Temperatura
+  Serial.begin(9600);
+  
+  //***Pantalla LCD***//
+  //Seteo el pin "contrast" del LCS
+  pinMode(contrastPin,OUTPUT); //El pin contrast (LCD) debe estar configurado como salida
+  // Seteo numero de filas y columnas:
+  lcd.begin(16, 2);
+  // Imprimo mensaje en el LCD.
+  lcd.print("Temperatura: ");
+  
+  //***LED RGB********//
+  pinMode(redLed, OUTPUT);
+  pinMode(blueLed, OUTPUT);
+  pinMode(greenLed, OUTPUT);
+}
+
+void loop() {
+  
+  //*********Sensor de Temperatura*************//
+  int lectura = analogRead(sensorPin);
+  //float voltaje = 5.0 /1024 * lectura ; // Atencion aqui
+  // Si se usa un LM35 vuestra formula sera
+  //float temp = voltaje * 100 ;
+  //float sensorTemp = voltaje * 100 -50 ; 
+  float sensorTemp = ((5.0 /1024) * lectura * 100) -50 ;
+  Serial.print(sensorTemp);
+  Serial.print(" ; "); 
+  temp = (int)sensorTemp;
+  Serial.println(temp); 
+  //delay(100);
+  //*******************************************//
+  
+  //*********LED´s***************************//
+  if (temp > 35)
+  {
+    digitalWrite(redLed, HIGH);
+    digitalWrite(greenLed, LOW);
+    digitalWrite(blueLed, LOW);
+  }
+  else if (temp >=30 && temp<=35 )
+  {
+    digitalWrite(greenLed, HIGH);
+    digitalWrite(redLed, LOW);
+    digitalWrite(blueLed, LOW);
+  }
+  else if (temp < 30 )
+  {
+    digitalWrite(blueLed, HIGH);
+    digitalWrite(redLed, LOW);
+    digitalWrite(greenLed, LOW);
+  }
+  
+  
+  //*********Pantalla LCD*************//
+  //Seteo el contraste
+  analogWrite(contrastPin, contrastValue); //El pin contrast (LCD) se setea por valor analogico (5-20)
+  // Seteo el cursor a columna 0, linea 1
+  // (nota: linea 1 is la segunda fila, la primera fila es la 0):
+  lcd.setCursor(6, 1);
+  // print the number of seconds since reset:
+  lcd.print(temp);
+  
+  if (temp >= 100)
+  {
+    lcd.setCursor(9, 1); // Posiciona el cursor para escribir
+    lcd.print("C");//Simbolo de Centigrados
+  }
+  else if ((temp >= 0)&&(temp < 10))
+  {
+    lcd.setCursor(8, 1); //Borra los espacios que no se usan
+    lcd.print(" ");
+    lcd.setCursor(7, 1); //Ubica el simbolo de centigrados
+    lcd.print("C");
+  }
+  else if ((temp >= -9)&&(temp < 0))
+  {
+    lcd.setCursor(9, 1); //Borra los espacios que no se usan
+    lcd.print(" ");
+    lcd.setCursor(8, 1); //Ubica el simbolo de centigrados
+    lcd.print("C");
+  }
+  else if (temp < -10)
+  {
+    lcd.setCursor(9, 1); //Ubica el simbolo de centigrados
+    lcd.print("C");
+  }
+  else
+  {
+    lcd.setCursor(9, 1);
+    lcd.print(" ");
+    lcd.setCursor(8, 1);
+    lcd.print("C");
+  }
+  
+  delay(500);
+  //**********************************//
+
+  
+}
+}</pre>
+          </div>
+
+          <h3>2. Explicación</h3>
+          <p>El código lee el sensor en A0, convierte la lectura analógica a temperatura, la envía al Monitor Serial y la muestra en la pantalla LCD. El LED RGB cambia de color: azul por debajo de 30 °C, verde entre 30 y 35 °C y rojo por encima de 35 °C.</p>
+
+          <h3>3. Imagen del montaje</h3>
+          <figure class="project-figure">
+            <img src="imagenes/sensor-temperatura-lcd.png" alt="Arduino UNO conectado a sensor de temperatura, pantalla LCD y LED RGB">
+            <figcaption><strong>Temperatura + LCD.</strong> Montaje de temperatura con LCD y LED RGB.</figcaption>
+          </figure>
+
+          <h3>4. Video explicativo</h3>
+          <div class="video-frame">
+            <video controls width="100%">
+              <source src="videos/sensor-temperatura-lcd.mp4" type="video/mp4">
+            </video>
+            <div class="video-caption">Temperatura + LCD · video de demostración</div>
+          </div>
+
+          <div class="note"><strong>Relación con el portafolio:</strong> esta práctica muestra cómo Arduino recibe una entrada, procesa una condición y activa una salida, igual que en el sistema automatizado de detección y control de incendios.</div>
+        </article>
+
+        <aside>
+          <div class="side-card">
+            <h3>Ficha de la práctica</h3>
+            <dl>
+              <dt>Contenido</dt><dd>Código, imagen y video.</dd>
+              <dt>Montaje</dt><dd>Temperatura + LCD.</dd>
+              <dt>Archivos</dt><dd>imagenes/sensor-temperatura-lcd.png<br>videos/sensor-temperatura-lcd.mp4</dd>
+              <dt>Siguiente</dt><dd><a href="#humo">Humo + alarma →</a></dd>
+              <dt>Catálogo</dt><dd><a href="index.html#catalogo">← Volver al catálogo</a></dd>
+            </dl>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 06.2 HUMO ===================== -->
+  <section class="practice" id="humo">
+    <div class="container">
+      <div class="practice-banner">
+        <p class="eyebrow">06.2 / HUMO</p>
+        <h2 class="big">Sensor de humo</h2>
+        <p>Detección de humo con lectura analógica, tres niveles visuales y una alarma sonora.</p>
+        <div class="practice-meta">
+          <div><strong>Plataforma</strong>Arduino UNO</div>
+          <div><strong>Práctica</strong>Humo + alarma</div>
+          <div><strong>Orden</strong>Código → imagen → video</div>
+        </div>
+      </div>
+
+      <div class="layout">
+        <article class="content">
+          <h3>1. Código</h3>
+          <div class="code">
+            <div class="code-title">Arduino · Humo + alarma</div>
+            <pre>int humo;
+int rojo = 11;
+int amarillo = 12;
+int verde = 13;
+int alarma = 10;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(rojo, OUTPUT);
+  pinMode(amarillo, OUTPUT);
+  pinMode(verde, OUTPUT);
+  pinMode(alarma, OUTPUT);
+}
+
+void loop() {
+  humo = analogRead(A5);
+
+  if (humo &lt; 930) {
+    digitalWrite(verde, HIGH);
+    digitalWrite(amarillo, LOW);
+    digitalWrite(rojo, LOW);
+    noTone(alarma);
+    Serial.println("ESTAS FUERA DE PELIGRO");
+  }
+
+  if (humo &gt;= 930 &amp;&amp; humo &lt;= 960) {
+    digitalWrite(verde, LOW);
+    digitalWrite(amarillo, HIGH);
+    digitalWrite(rojo, LOW);
+    noTone(alarma);
+    Serial.println("OJO! EL PELIGRO SE ACERCA");
+  }
+
+  if (humo &gt; 960) {
+    digitalWrite(verde, LOW);
+    digitalWrite(amarillo, LOW);
+    digitalWrite(rojo, HIGH);
+    tone(alarma, 440);
+    Serial.println("ESTAS EN PELIGRO");
+  }
+  delay(500);
+}</pre>
+          </div>
+
+          <h3>2. Explicación</h3>
+          <p>El programa lee el valor del sensor en A5. Por debajo de 930 enciende el LED verde; entre 930 y 960 enciende el amarillo; por encima de 960 enciende el rojo y activa el buzzer. También envía el estado al Monitor Serial.</p>
+
+          <h3>3. Imagen del montaje</h3>
+          <figure class="project-figure">
+            <img src="imagenes/sensor-humo.png" alt="Arduino conectado a sensor de humo, buzzer y LEDs indicadores">
+            <figcaption><strong>Humo + alarma.</strong> Montaje de sensor de humo con LEDs y buzzer.</figcaption>
+          </figure>
+
+          <h3>4. Video explicativo</h3>
+          <div class="video-frame">
+            <video controls width="100%">
+              <source src="videos/sensor-humo.mp4" type="video/mp4">
+            </video>
+            <div class="video-caption">Humo + alarma · video de demostración</div>
+          </div>
+
+          <div class="note"><strong>Relación con el portafolio:</strong> esta práctica muestra cómo Arduino recibe una entrada, procesa una condición y activa una salida, igual que en el sistema automatizado de detección y control de incendios.</div>
+        </article>
+
+        <aside>
+          <div class="side-card">
+            <h3>Ficha de la práctica</h3>
+            <dl>
+              <dt>Contenido</dt><dd>Código, imagen y video.</dd>
+              <dt>Montaje</dt><dd>Humo + alarma.</dd>
+              <dt>Archivos</dt><dd>imagenes/sensor-humo.png<br>videos/sensor-humo.mp4</dd>
+              <dt>Anterior</dt><dd><a href="#temperatura">← Temperatura + LCD</a></dd>
+              <dt>Siguiente</dt><dd><a href="#bomba">Bomba + botón →</a></dd>
+            </dl>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 06.3 BOMBA ===================== -->
+  <section class="practice" id="bomba">
+    <div class="container">
+      <div class="practice-banner">
+        <p class="eyebrow">06.3 / ACTUADOR</p>
+        <h2 class="big">Control de motor de agua</h2>
+        <p>Control de una bomba de agua mediante botón, interrupción y LEDs de estado.</p>
+        <div class="practice-meta">
+          <div><strong>Plataforma</strong>Arduino UNO</div>
+          <div><strong>Práctica</strong>Bomba + botón</div>
+          <div><strong>Orden</strong>Código → imagen → video</div>
+        </div>
+      </div>
+
+      <div class="layout">
+        <article class="content">
+          <h3>1. Código</h3>
+          <div class="code">
+            <div class="code-title">Arduino · Bomba + botón</div>
+            <pre>#define PUMP_PIN 5
+#define BUTTON_PIN 2
+#define GREEN_LED_PIN 8
+#define RED_LED_PIN 9
+
+volatile bool pumpRunning = false;
+bool greenLedState = LOW;
+bool redLedState = LOW;
+
+void setup() {
+  pinMode(PUMP_PIN, OUTPUT);
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+  pinMode(GREEN_LED_PIN, OUTPUT);
+  pinMode(RED_LED_PIN, OUTPUT);
+  attachInterrupt(digitalPinToInterrupt(BUTTON_PIN), buttonPressed, FALLING);
+  digitalWrite(PUMP_PIN, LOW);
+  digitalWrite(GREEN_LED_PIN, LOW);
+  digitalWrite(RED_LED_PIN, LOW);
+}
+
+void loop() {
+  if (pumpRunning) {
+    greenLedState = HIGH;
+    redLedState = LOW;
+    digitalWrite(PUMP_PIN, HIGH);
+  } else {
+    greenLedState = LOW;
+    redLedState = HIGH;
+    digitalWrite(PUMP_PIN, LOW);
+  }
+  digitalWrite(GREEN_LED_PIN, greenLedState);
+  digitalWrite(RED_LED_PIN, redLedState);
+}
+
+void buttonPressed() {
+  pumpRunning = !pumpRunning;
+}</pre>
+          </div>
+
+          <h3>2. Explicación</h3>
+          <p>El botón del pin 2 cambia el estado de la bomba mediante una interrupción. Cuando la bomba está activa se enciende el LED verde; cuando está detenida se enciende el LED rojo. La bomba debe utilizar una alimentación compatible y una etapa de potencia adecuada.</p>
+
+          <h3>3. Imagen del montaje</h3>
+          <figure class="project-figure">
+            <img src="imagenes/motor-agua.png" alt="Arduino conectado a motor de agua, batería, botón y LEDs">
+            <figcaption><strong>Bomba + botón.</strong> Montaje de motor de agua con botón e indicadores.</figcaption>
+          </figure>
+
+          <h3>4. Video explicativo</h3>
+          <div class="video-frame">
+            <video controls width="100%">
+              <source src="videos/motor-agua.mp4" type="video/mp4">
+            </video>
+            <div class="video-caption">Bomba + botón · video de demostración</div>
+          </div>
+
+          <div class="note"><strong>Relación con el portafolio:</strong> esta práctica muestra cómo Arduino recibe una entrada, procesa una condición y activa una salida, igual que en el sistema automatizado de detección y control de incendios.</div>
+        </article>
+
+        <aside>
+          <div class="side-card">
+            <h3>Ficha de la práctica</h3>
+            <dl>
+              <dt>Contenido</dt><dd>Código, imagen y video.</dd>
+              <dt>Montaje</dt><dd>Bomba + botón.</dd>
+              <dt>Archivos</dt><dd>imagenes/motor-agua.png<br>videos/motor-agua.mp4</dd>
+              <dt>Anterior</dt><dd><a href="#humo">← Humo + alarma</a></dd>
+              <dt>Catálogo</dt><dd><a href="index.html#catalogo">← Volver al catálogo</a></dd>
+            </dl>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <span><strong>Ian Martin Aguilar Alejo</strong> · 5.- “A” Inteligencia Artificial</span>
+    <span>Docente: Jordy Chirino Balcazar</span>
+  </div>
+</footer>
+
+</body></html>
