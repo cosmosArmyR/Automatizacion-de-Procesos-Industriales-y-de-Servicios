@@ -1,4 +1,4 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#071f44"><title>Prácticas de sensores | Ian Martin Aguilar Alejo</title>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#071f44"><title>Circuitos Físicos Individuales | Ian Martin Aguilar Alejo</title>
 <style>
 :root{--navy:#071f44;--blue:#0b4da2;--bright:#4e9bea;--ice:#eaf4ff;--paper:#f7faff;--ink:#193252;--muted:#647991;--line:#d7e5f2;--white:#fff;--shadow:0 18px 40px rgba(7,31,68,.12)}
 *{box-sizing:border-box}
@@ -54,9 +54,13 @@ a{text-decoration:none;color:inherit}
 .project-figure figcaption{padding:11px 14px;color:var(--muted);font-size:12px}
 .project-figure strong{color:var(--blue)}
 
-.video-frame{border:1px solid var(--line);border-radius:7px;overflow:hidden;background:#000;margin:0 0 34px;box-shadow:0 10px 25px #071f4412}
-.video-frame video{display:block;width:100%;max-height:480px;background:#000}
-.video-caption{padding:11px 14px;color:var(--muted);font-size:12px;background:#fff}
+.video-frame{border:1px solid var(--line);border-radius:7px;overflow:hidden;background:#fff;margin:0 0 34px;box-shadow:0 10px 25px #071f4412}
+.video-link-box{display:flex;align-items:center;gap:14px;padding:22px;background:linear-gradient(120deg,#0b1f3a,#0b4da2)}
+.video-link-box .yt-icon{flex:none;width:46px;height:46px;border-radius:10px;background:#fff;display:grid;place-items:center;color:#0b4da2;font-size:20px;font-weight:700}
+.video-link-box a{color:#eaf4ff;font-weight:700;font-size:14px;word-break:break-all}
+.video-link-box a:hover{text-decoration:underline}
+.video-link-box small{display:block;color:#b9d9fa;font:11px monospace;text-transform:uppercase;margin-bottom:4px}
+.video-caption{padding:11px 14px;color:var(--muted);font-size:12px;background:#fff;border-top:1px solid var(--line)}
 
 .note{background:#fff;border-left:4px solid var(--bright);box-shadow:var(--shadow);padding:18px 20px;margin-top:24px;color:var(--muted);font-size:14px}
 .note strong{color:var(--navy)}
@@ -91,10 +95,10 @@ a{text-decoration:none;color:inherit}
     <a class="brand" href="index.html"><span class="brand-mark">IA</span><span>NODO <b>/</b> AUTOMATIZACIÓN</span></a>
     <nav class="nav">
       <a href="index.html#catalogo">Catálogo</a>
-      <a href="#temperatura">Temperatura</a>
       <a href="#humo">Humo</a>
       <a href="#bomba">Bomba</a>
-      <a href="incendios.html">Incendios</a>
+      <a href="#dht11">DHT11</a>
+      <a href="#completo">Completo</a>
     </nav>
   </div>
 </header>
@@ -104,39 +108,279 @@ a{text-decoration:none;color:inherit}
   <!-- ===================== HERO GENERAL ===================== -->
   <section class="hero">
     <div class="container">
-      <p class="eyebrow">06 / PRÁCTICAS CON ARDUINO</p>
-      <h1>Prácticas Individuales en Físico y Simulado: <span>Tinkercad y Físico</span></h1>
-      <p class="hero-copy">Tres montajes con Arduino UNO que muestran el mismo patrón: leer un sensor, evaluar una condición y activar una salida. Cada práctica incluye su código, una imagen del montaje y un video explicativo.</p>
+      <p class="eyebrow">07 / CIRCUITOS FÍSICOS</p>
+      <h1>CIRCUITOS FÍSICOS <span>INDIVIDUALES</span></h1>
+      <p class="hero-copy">Cuatro montajes armados en físico con Arduino UNO. Cada espacio incluye una fotografía del circuito, dos versiones de código distintas y un enlace al video de YouTube donde se explica su funcionamiento.</p>
       <div class="tabs">
-        <a href="#temperatura">06.1 <b>·</b> Temperatura</a>
-        <a href="#humo">06.2 <b>·</b> Humo + alarma</a>
-        <a href="#bomba">06.3 <b>·</b> Bomba + botón</a>
+        <a href="#humo">07.1 <b>·</b> Sensor de humo</a>
+        <a href="#bomba">07.2 <b>·</b> Bomba</a>
+        <a href="#dht11">07.3 <b>·</b> Temperatura DHT11</a>
+        <a href="#completo">07.4 <b>·</b> Circuito completo</a>
       </div>
     </div>
   </section>
 
-  <!-- ===================== 06.1 TEMPERATURA ===================== -->
-  <section class="practice" id="temperatura">
+  <!-- ===================== 07.1 CIRCUITO CON SENSOR DE HUMO ===================== -->
+  <section class="practice" id="humo">
     <div class="container">
       <div class="practice-banner">
-        <p class="eyebrow">06.1 / TEMPERATURA</p>
-        <h2 class="big">Sensor de temperatura</h2>
-        <p>Lectura analógica de temperatura con Arduino UNO</p>
+        <p class="eyebrow">07.1 / HUMO</p>
+        <h2 class="big">CIRCUITO CON SENSOR DE HUMO</h2>
+        <p>Montaje físico que detecta la presencia de humo en el ambiente y avisa mediante indicadores visuales y/o sonoros.</p>
         <div class="practice-meta">
           <div><strong>Plataforma</strong>Arduino UNO</div>
-          <div><strong>Práctica</strong>Temperatura</div>
-          <div><strong>Orden</strong>Código → imagen → video</div>
+          <div><strong>Práctica</strong>Sensor de humo</div>
+          <div><strong>Orden</strong>Imagen → código 1 → código 2 → video</div>
         </div>
       </div>
 
       <div class="layout">
         <article class="content">
-          <h3>1. Código</h3>
-          <div class="code">
-            <div class="code-title">Arduino · Temperatura</div>
-            <pre>#include &lt;LiquidCrystal.h&gt;
+          <h3>1. Imagen del montaje</h3>
+          <figure class="project-figure">
+            <img src="imagenes/circuito-humo.png" alt="Fotografía del circuito físico con sensor de humo">
+            <figcaption><strong>Circuito con sensor de humo.</strong> [SUSTITUIR con la foto real del montaje físico]</figcaption>
+          </figure>
 
-Sensor de Temperatura:
+          <h3>2. Código 1</h3>
+          <div class="code">
+            <div class="code-title">Arduino · Humo — versión 1</div>
+            <pre>// [int humo;
+
+int rojo = 11;
+int amarillo = 12;
+int verde = 13;
+int alarma = 10;
+
+void setup()
+{
+  Serial.begin(9600);
+
+  pinMode(rojo, OUTPUT);
+  pinMode(amarillo, OUTPUT);
+  pinMode(verde, OUTPUT);
+  pinMode(alarma, OUTPUT);
+}
+
+void loop()
+{
+  humo = analogRead(A5);
+
+  Serial.print("Nivel de humo: ");
+  Serial.println(humo);
+
+  // 🟢 NORMAL
+  if (humo < 300)
+  {
+    digitalWrite(verde, HIGH);
+    digitalWrite(amarillo, LOW);
+    digitalWrite(rojo, LOW);
+
+    noTone(alarma);
+
+    Serial.println("ESTAS FUERA DE PELIGRO");
+  }
+
+  // 🟡 HUMO DETECTADO
+  else if (humo < 400)
+  {
+    digitalWrite(verde, LOW);
+    digitalWrite(amarillo, HIGH);
+    digitalWrite(rojo, LOW);
+
+    tone(alarma, 300);
+
+    Serial.println("OJO! SE DETECTA HUMO");
+  }
+
+  // 🔴 PELIGRO
+  else
+  {
+    digitalWrite(verde, LOW);
+    digitalWrite(amarillo, LOW);
+    digitalWrite(rojo, HIGH);
+
+    tone(alarma, 800);
+
+    Serial.println("PELIGRO! MUCHO HUMO DETECTADO");
+  }
+
+  delay(100);
+}]
+</pre>
+
+          <h3>4. Video explicativo</h3>
+          <div class="video-frame">
+            <div class="video-link-box">
+              <span class="yt-icon">▶</span>
+              <div>
+                <small>Ver en YouTube</small>
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener">[https://youtube.com/shorts/fZ3JM2UsJds?feature=share]</a>
+              </div>
+            </div>
+            <div class="video-caption">Circuito con sensor de humo · video de demostración</div>
+          </div>
+
+          <p>De forma general, este circuito lee el valor del sensor de humo y, dependiendo de qué tan alto sea, enciende distintos indicadores para avisar del nivel de riesgo detectado.</p>
+
+          <div class="note"><strong>Relación con el portafolio:</strong> este circuito muestra cómo Arduino recibe una entrada, procesa una condición y activa una salida, igual que en el sistema automatizado de detección y control de incendios.</div>
+        </article>
+
+        <aside>
+          <div class="side-card">
+            <h3>Ficha del circuito</h3>
+            <dl>
+              <dt>Contenido</dt><dd>Foto, dos códigos y video.</dd>
+              <dt>Montaje</dt><dd>Sensor de humo.</dd>
+              <dt>Archivos</dt><dd>imagenes/circuito-humo.png</dd>
+              <dt>Siguiente</dt><dd><a href="#bomba">Bomba →</a></dd>
+              <dt>Catálogo</dt><dd><a href="index.html#catalogo">← Volver al catálogo</a></dd>
+            </dl>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 07.2 CIRCUITO CON BOMBA ===================== -->
+  <section class="practice" id="bomba">
+    <div class="container">
+      <div class="practice-banner">
+        <p class="eyebrow">07.2 / ACTUADOR</p>
+        <h2 class="big">CIRCUITO CON BOMBA</h2>
+        <p>Montaje físico que controla el encendido y apagado de una bomba de agua.</p>
+        <div class="practice-meta">
+          <div><strong>Plataforma</strong>Arduino UNO</div>
+          <div><strong>Práctica</strong>Bomba</div>
+          <div><strong>Orden</strong>Imagen → código 1 → código 2 → video</div>
+        </div>
+      </div>
+
+      <div class="layout">
+        <article class="content">
+          <h3>1. Imagen del montaje</h3>
+          <figure class="project-figure">
+            <img src="imagenes/circuito-bomba.png" alt="Fotografía del circuito físico con bomba de agua">
+            <figcaption><strong>Circuito con bomba.</strong> [SUSTITUIR con la foto real del montaje físico]</figcaption>
+          </figure>
+
+          <h3>2. Código 1</h3>
+          <div class="code">
+            <div class="code-title">Arduino · Bomba — versión 1</div>
+            <pre>// [3.	Motor de Agua
+
+// Define pin numbers for components
+#define PUMP_PIN 5        // Pin connected to the 3V DC pump
+#define BUTTON_PIN 2      // Pin connected to the push button
+#define GREEN_LED_PIN 8   // Pin connected to the green LED indicator
+#define RED_LED_PIN 9     // Pin connected to the red LED indicator
+
+// Define variables to store pump state and LED states
+volatile bool pumpRunning = false;
+bool greenLedState = LOW;
+bool redLedState = LOW;
+
+void setup() {
+  // Initialize pins
+  pinMode(PUMP_PIN, OUTPUT);
+  pinMode(BUTTON_PIN, INPUT_PULLUP); // Use internal pull-up resistor
+  pinMode(GREEN_LED_PIN, OUTPUT);
+  pinMode(RED_LED_PIN, OUTPUT);
+
+  // Attach interrupt to the button pin
+  attachInterrupt(digitalPinToInterrupt(BUTTON_PIN), buttonPressed, FALLING);
+
+  // Turn off pump and LEDs initially
+  digitalWrite(PUMP_PIN, LOW);
+  digitalWrite(GREEN_LED_PIN, LOW);
+  digitalWrite(RED_LED_PIN, LOW);
+}
+
+void loop() {
+  // Update LED states based on pump state
+  digitalWrite(GREEN_LED_PIN, greenLedState);
+  digitalWrite(RED_LED_PIN, redLedState);
+
+  // Check if the pump is running and update LED states accordingly
+  if (pumpRunning) {
+    greenLedState = HIGH; // Turn on green LED
+    redLedState = LOW;    // Turn off red LED
+    digitalWrite(PUMP_PIN, HIGH); // Turn on the pump
+  } else {
+    greenLedState = LOW;  // Turn off green LED
+    redLedState = HIGH;   // Turn on red LED
+    digitalWrite(PUMP_PIN, LOW);  // Turn off the pump
+  }
+}
+
+// Interrupt service routine for button press
+void buttonPressed() {
+  // Toggle pump state
+  pumpRunning = !pumpRunning;
+}]
+</pre>
+          </div>
+
+
+          <h3>4. Video explicativo</h3>
+          <div class="video-frame">
+            <div class="video-link-box">
+              <span class="yt-icon">▶</span>
+              <div>
+                <small>Ver en YouTube</small>
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener">[https://youtu.be/0kAXBuqZwI8?si=UiXqGU6a18KZIkBW]</a>
+              </div>
+            </div>
+            <div class="video-caption">Circuito con bomba · video de demostración</div>
+          </div>
+
+          <p>De forma general, este circuito activa o detiene una bomba de agua según una señal de control, permitiendo automatizar el riego o el suministro de agua.</p>
+
+          <div class="note"><strong>Relación con el portafolio:</strong> este circuito muestra cómo Arduino recibe una entrada, procesa una condición y activa una salida, igual que en el sistema automatizado de detección y control de incendios.</div>
+        </article>
+
+        <aside>
+          <div class="side-card">
+            <h3>Ficha del circuito</h3>
+            <dl>
+              <dt>Contenido</dt><dd>Foto, dos códigos y video.</dd>
+              <dt>Montaje</dt><dd>Bomba.</dd>
+              <dt>Archivos</dt><dd>imagenes/circuito-bomba.png</dd>
+              <dt>Anterior</dt><dd><a href="#humo">← Sensor de humo</a></dd>
+              <dt>Siguiente</dt><dd><a href="#dht11">Temperatura DHT11 →</a></dd>
+            </dl>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 07.3 CIRCUITO CON SENSOR DE TEMPERATURA DHT11 ===================== -->
+  <section class="practice" id="dht11">
+    <div class="container">
+      <div class="practice-banner">
+        <p class="eyebrow">07.3 / TEMPERATURA</p>
+        <h2 class="big">CIRCUITO CON SENSOR DE TEMPERATURA DHT11</h2>
+        <p>Montaje físico que mide temperatura (y humedad) con el sensor DHT11.</p>
+        <div class="practice-meta">
+          <div><strong>Plataforma</strong>Arduino UNO</div>
+          <div><strong>Práctica</strong>Temperatura DHT11</div>
+          <div><strong>Orden</strong>Imagen → código 1 → código 2 → video</div>
+        </div>
+      </div>
+
+      <div class="layout">
+        <article class="content">
+          <h3>1. Imagen del montaje</h3>
+          <figure class="project-figure">
+            <img src="imagenes/circuito-dht11.png" alt="Fotografía del circuito físico con sensor de temperatura DHT11">
+            <figcaption><strong>Circuito con sensor DHT11.</strong> [SUSTITUIR con la foto real del montaje físico]</figcaption>
+          </figure>
+
+          <h3>2. Código 1</h3>
+          <div class="code">
+            <div class="code-title">Arduino · DHT11 — versión 1</div>
+            <pre>// [Sensor de Temperatura:
 
 //Sensor De Temperatura LCD Con Arduino Y Tinkercard
 /*
@@ -280,41 +524,39 @@ void loop() {
   
   delay(500);
   //**********************************//
-
   
-}
-}</pre>
+  
+}]
+</pre>
           </div>
 
-          <h3>2. Explicación</h3>
-          <p>El código lee el sensor en A0, convierte la lectura analógica a temperatura, la envía al Monitor Serial y la muestra en la pantalla LCD. El LED RGB cambia de color: azul por debajo de 30 °C, verde entre 30 y 35 °C y rojo por encima de 35 °C.</p>
-
-          <h3>3. Imagen del montaje</h3>
-          <figure class="project-figure">
-            <img src="imagenes/sensor-temperatura-lcd.png" alt="Arduino UNO conectado a sensor de temperatura, pantalla LCD y LED RGB">
-            <figcaption><strong>Temperatura + LCD.</strong> Montaje de temperatura con LCD y LED RGB.</figcaption>
-          </figure>
 
           <h3>4. Video explicativo</h3>
           <div class="video-frame">
-            <video controls width="100%">
-              <source src="videos/sensor-temperatura-lcd.mp4" type="video/mp4">
-            </video>
-            <div class="video-caption">Temperatura + LCD · video de demostración</div>
+            <div class="video-link-box">
+              <span class="yt-icon">▶</span>
+              <div>
+                <small>Ver en YouTube</small>
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener">[https://youtu.be/Rm3l-k7Oe_Y]</a>
+              </div>
+            </div>
+            <div class="video-caption">Circuito con sensor DHT11 · video de demostración</div>
           </div>
 
-          <div class="note"><strong>Relación con el portafolio:</strong> esta práctica muestra cómo Arduino recibe una entrada, procesa una condición y activa una salida, igual que en el sistema automatizado de detección y control de incendios.</div>
+          <p>De forma general, este circuito toma lecturas del sensor DHT11 y las muestra o utiliza para decidir si activar alguna alerta o salida relacionada con la temperatura.</p>
+
+          <div class="note"><strong>Relación con el portafolio:</strong> este circuito muestra cómo Arduino recibe una entrada, procesa una condición y activa una salida, igual que en el sistema automatizado de detección y control de incendios.</div>
         </article>
 
         <aside>
           <div class="side-card">
-            <h3>Ficha de la práctica</h3>
+            <h3>Ficha del circuito</h3>
             <dl>
-              <dt>Contenido</dt><dd>Código, imagen y video.</dd>
-              <dt>Montaje</dt><dd>Temperatura + LCD.</dd>
-              <dt>Archivos</dt><dd>imagenes/sensor-temperatura-lcd.png<br>videos/sensor-temperatura-lcd.mp4</dd>
-              <dt>Siguiente</dt><dd><a href="#humo">Humo + alarma →</a></dd>
-              <dt>Catálogo</dt><dd><a href="index.html#catalogo">← Volver al catálogo</a></dd>
+              <dt>Contenido</dt><dd>Foto, dos códigos y video.</dd>
+              <dt>Montaje</dt><dd>Temperatura DHT11.</dd>
+              <dt>Archivos</dt><dd>imagenes/circuito-dht11.png</dd>
+              <dt>Anterior</dt><dd><a href="#bomba">← Bomba</a></dd>
+              <dt>Siguiente</dt><dd><a href="#completo">Circuito completo →</a></dd>
             </dl>
           </div>
         </aside>
@@ -322,191 +564,119 @@ void loop() {
     </div>
   </section>
 
-  <!-- ===================== 06.2 HUMO ===================== -->
-  <section class="practice" id="humo">
+  <!-- ===================== 07.4 CIRCUITO COMPLETO ===================== -->
+  <section class="practice" id="completo">
     <div class="container">
       <div class="practice-banner">
-        <p class="eyebrow">06.2 / HUMO</p>
-        <h2 class="big">Sensor de humo</h2>
-        <p>Detección de humo con lectura analógica, tres niveles visuales y una alarma sonora.</p>
+        <p class="eyebrow">07.4 / INTEGRACIÓN</p>
+        <h2 class="big">CIRCUITO COMPLETO</h2>
+        <p>Montaje físico que integra los sensores y actuadores anteriores en un solo sistema.</p>
         <div class="practice-meta">
           <div><strong>Plataforma</strong>Arduino UNO</div>
-          <div><strong>Práctica</strong>Humo + alarma</div>
-          <div><strong>Orden</strong>Código → imagen → video</div>
+          <div><strong>Práctica</strong>Circuito completo</div>
+          <div><strong>Orden</strong>Imagen → código 1 → código 2 → video</div>
         </div>
       </div>
 
-      <div class="layout">
-        <article class="content">
-          <h3>1. Código</h3>
+      
+          <h3>2. Código 1</h3>
           <div class="code">
-            <div class="code-title">Arduino · Humo + alarma</div>
-            <pre>int humo;
-int rojo = 11;
-int amarillo = 12;
-int verde = 13;
-int alarma = 10;
+            <div class="code-title">Arduino · Circuito completo — versión 1</div>
+            <pre>// [#include <DHT.h>
+
+#define DHTPIN 2
+#define DHTTYPE DHT11
+
+#define LED 8
+#define BUZZER 9
+#define BOMBA 7
+
+#define LIMITE_TEMPERATURA 40.0
+
+DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
   Serial.begin(9600);
-  pinMode(rojo, OUTPUT);
-  pinMode(amarillo, OUTPUT);
-  pinMode(verde, OUTPUT);
-  pinMode(alarma, OUTPUT);
+
+  dht.begin();
+
+  pinMode(LED, OUTPUT);
+  pinMode(BUZZER, OUTPUT);
+  pinMode(BOMBA, OUTPUT);
+
+  digitalWrite(LED, LOW);
+  digitalWrite(BUZZER, LOW);
+  digitalWrite(BOMBA, LOW);
+
+  Serial.println("Sistema iniciado");
 }
 
 void loop() {
-  humo = analogRead(A5);
 
-  if (humo &lt; 930) {
-    digitalWrite(verde, HIGH);
-    digitalWrite(amarillo, LOW);
-    digitalWrite(rojo, LOW);
-    noTone(alarma);
-    Serial.println("ESTAS FUERA DE PELIGRO");
+  float temperatura = dht.readTemperature();
+  float humedad = dht.readHumidity();
+
+  if (isnan(temperatura) || isnan(humedad)) {
+    Serial.println("Error al leer el DHT11");
+    return;
   }
 
-  if (humo &gt;= 930 &amp;&amp; humo &lt;= 960) {
-    digitalWrite(verde, LOW);
-    digitalWrite(amarillo, HIGH);
-    digitalWrite(rojo, LOW);
-    noTone(alarma);
-    Serial.println("OJO! EL PELIGRO SE ACERCA");
-  }
+  Serial.print("Temperatura: ");
+  Serial.print(temperatura);
+  Serial.print(" °C | Humedad: ");
+  Serial.print(humedad);
+  Serial.println(" %");
 
-  if (humo &gt; 960) {
-    digitalWrite(verde, LOW);
-    digitalWrite(amarillo, LOW);
-    digitalWrite(rojo, HIGH);
-    tone(alarma, 440);
-    Serial.println("ESTAS EN PELIGRO");
-  }
-  delay(500);
-}</pre>
-          </div>
+  if (temperatura >= LIMITE_TEMPERATURA) {
 
-          <h3>2. Explicación</h3>
-          <p>El programa lee el valor del sensor en A5. Por debajo de 930 enciende el LED verde; entre 930 y 960 enciende el amarillo; por encima de 960 enciende el rojo y activa el buzzer. También envía el estado al Monitor Serial.</p>
+    digitalWrite(LED, HIGH);
+    digitalWrite(BUZZER, HIGH);
+    digitalWrite(BOMBA, HIGH);
 
-          <h3>3. Imagen del montaje</h3>
-          <figure class="project-figure">
-            <img src="imagenes/sensor-humo.png" alt="Arduino conectado a sensor de humo, buzzer y LEDs indicadores">
-            <figcaption><strong>Humo + alarma.</strong> Montaje de sensor de humo con LEDs y buzzer.</figcaption>
-          </figure>
+    Serial.println("!!! ALERTA: TEMPERATURA ALTA !!!");
+    Serial.println("BOMBA ACTIVADA");
 
-          <h3>4. Video explicativo</h3>
-          <div class="video-frame">
-            <video controls width="100%">
-              <source src="videos/sensor-humo.mp4" type="video/mp4">
-            </video>
-            <div class="video-caption">Humo + alarma · video de demostración</div>
-          </div>
-
-          <div class="note"><strong>Relación con el portafolio:</strong> esta práctica muestra cómo Arduino recibe una entrada, procesa una condición y activa una salida, igual que en el sistema automatizado de detección y control de incendios.</div>
-        </article>
-
-        <aside>
-          <div class="side-card">
-            <h3>Ficha de la práctica</h3>
-            <dl>
-              <dt>Contenido</dt><dd>Código, imagen y video.</dd>
-              <dt>Montaje</dt><dd>Humo + alarma.</dd>
-              <dt>Archivos</dt><dd>imagenes/sensor-humo.png<br>videos/sensor-humo.mp4</dd>
-              <dt>Anterior</dt><dd><a href="#temperatura">← Temperatura + LCD</a></dd>
-              <dt>Siguiente</dt><dd><a href="#bomba">Bomba + botón →</a></dd>
-            </dl>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== 06.3 BOMBA ===================== -->
-  <section class="practice" id="bomba">
-    <div class="container">
-      <div class="practice-banner">
-        <p class="eyebrow">06.3 / ACTUADOR</p>
-        <h2 class="big">Control de motor de agua</h2>
-        <p>Control de una bomba de agua mediante botón, interrupción y LEDs de estado.</p>
-        <div class="practice-meta">
-          <div><strong>Plataforma</strong>Arduino UNO</div>
-          <div><strong>Práctica</strong>Bomba + botón</div>
-          <div><strong>Orden</strong>Código → imagen → video</div>
-        </div>
-      </div>
-
-      <div class="layout">
-        <article class="content">
-          <h3>1. Código</h3>
-          <div class="code">
-            <div class="code-title">Arduino · Bomba + botón</div>
-            <pre>#define PUMP_PIN 5
-#define BUTTON_PIN 2
-#define GREEN_LED_PIN 8
-#define RED_LED_PIN 9
-
-volatile bool pumpRunning = false;
-bool greenLedState = LOW;
-bool redLedState = LOW;
-
-void setup() {
-  pinMode(PUMP_PIN, OUTPUT);
-  pinMode(BUTTON_PIN, INPUT_PULLUP);
-  pinMode(GREEN_LED_PIN, OUTPUT);
-  pinMode(RED_LED_PIN, OUTPUT);
-  attachInterrupt(digitalPinToInterrupt(BUTTON_PIN), buttonPressed, FALLING);
-  digitalWrite(PUMP_PIN, LOW);
-  digitalWrite(GREEN_LED_PIN, LOW);
-  digitalWrite(RED_LED_PIN, LOW);
-}
-
-void loop() {
-  if (pumpRunning) {
-    greenLedState = HIGH;
-    redLedState = LOW;
-    digitalWrite(PUMP_PIN, HIGH);
   } else {
-    greenLedState = LOW;
-    redLedState = HIGH;
-    digitalWrite(PUMP_PIN, LOW);
-  }
-  digitalWrite(GREEN_LED_PIN, greenLedState);
-  digitalWrite(RED_LED_PIN, redLedState);
-}
 
-void buttonPressed() {
-  pumpRunning = !pumpRunning;
-}</pre>
+    digitalWrite(LED, LOW);
+    digitalWrite(BUZZER, LOW);
+    digitalWrite(BOMBA, LOW);
+
+    Serial.println("Temperatura normal");
+  }
+
+  delay(2000);
+}]
+</pre>
           </div>
 
-          <h3>2. Explicación</h3>
-          <p>El botón del pin 2 cambia el estado de la bomba mediante una interrupción. Cuando la bomba está activa se enciende el LED verde; cuando está detenida se enciende el LED rojo. La bomba debe utilizar una alimentación compatible y una etapa de potencia adecuada.</p>
-
-          <h3>3. Imagen del montaje</h3>
-          <figure class="project-figure">
-            <img src="imagenes/motor-agua.png" alt="Arduino conectado a motor de agua, batería, botón y LEDs">
-            <figcaption><strong>Bomba + botón.</strong> Montaje de motor de agua con botón e indicadores.</figcaption>
-          </figure>
+      
 
           <h3>4. Video explicativo</h3>
           <div class="video-frame">
-            <video controls width="100%">
-              <source src="videos/motor-agua.mp4" type="video/mp4">
-            </video>
-            <div class="video-caption">Bomba + botón · video de demostración</div>
+            <div class="video-link-box">
+              <span class="yt-icon">▶</span>
+              <div>
+                <small>Ver en YouTube</small>
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener">[https://youtu.be/Vxlp3-Z9wTU]</a>
+              </div>
+            </div>
+            <div class="video-caption">Circuito completo · video de demostración</div>
           </div>
 
-          <div class="note"><strong>Relación con el portafolio:</strong> esta práctica muestra cómo Arduino recibe una entrada, procesa una condición y activa una salida, igual que en el sistema automatizado de detección y control de incendios.</div>
+          <p>De forma general, este circuito une los sensores y el actuador de las prácticas anteriores para que trabajen juntos como un solo sistema automatizado.</p>
+
+          <div class="note"><strong>Relación con el portafolio:</strong> este circuito reúne, en un solo sistema, la lógica de entrada, condición y salida trabajada en los tres montajes anteriores, tal como ocurre en el sistema automatizado de detección y control de incendios.</div>
         </article>
 
         <aside>
           <div class="side-card">
-            <h3>Ficha de la práctica</h3>
+            <h3>Ficha del circuito</h3>
             <dl>
-              <dt>Contenido</dt><dd>Código, imagen y video.</dd>
-              <dt>Montaje</dt><dd>Bomba + botón.</dd>
-              <dt>Archivos</dt><dd>imagenes/motor-agua.png<br>videos/motor-agua.mp4</dd>
-              <dt>Anterior</dt><dd><a href="#humo">← Humo + alarma</a></dd>
+              <dt>Contenido</dt><dd>Foto, dos códigos y video.</dd>
+              <dt>Montaje</dt><dd>Circuito completo.</dd>
+              <dt>Archivos</dt><dd>imagenes/circuito-completo.png</dd>
+              <dt>Anterior</dt><dd><a href="#dht11">← Temperatura DHT11</a></dd>
               <dt>Catálogo</dt><dd><a href="index.html#catalogo">← Volver al catálogo</a></dd>
             </dl>
           </div>
@@ -519,7 +689,7 @@ void buttonPressed() {
 
 <footer class="footer">
   <div class="container footer-inner">
-    <span><strong>Ian Martin Aguilar Alejo</strong> · 5.- “A” Inteligencia Artificial</span>
+    <span><strong>Equipo Dinamita</strong> · 5.- “A” Inteligencia Artificial</span>
     <span>Docente: Jordy Chirino Balcazar</span>
   </div>
 </footer>
